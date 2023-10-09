@@ -1,19 +1,32 @@
+using System.Drawing;
+
 namespace P2_2_Figuras;
-internal class Circulo : Figura{
-    protected double _radio;
+public class Circulo : Figura
+{
+    private double radio;
 
-    public Circulo (double radio){
-        _radio = radio;
+    public Circulo(double radio, Color color)
+        : base(color)
+    {
+        this.radio = radio;
+    }
 
+    public double Radio
+    {
+        get { return radio; }
+        set { radio = value; }
     }
 
     public override double GetArea()
     {
-        return Math.PI*(this._radio*this._radio);
+        return Math.PI * radio * radio;
     }
 
     public override string ToString()
     {
-        return $" La base del circulo es: { _radio}";
+        return "Circulo: \n" +
+               $"Radio: {Radio}\n" +
+               base.ToString() +
+               $"Área: {GetArea()}\n";
     }
 }

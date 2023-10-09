@@ -1,12 +1,20 @@
+using System;
 using System.Drawing;
-using System.Dynamic;
 
-namespace P2_2_Figuras;
-
-internal abstract class Figura
+// Clase abstracta para representar figuras geométricas
+public abstract class Figura
 {
-  protected Color _color;
+    protected Color color;
 
-  public abstract double GetArea();
+    public Figura(Color color)
+    {
+        this.color = color;
+    }
 
+    public abstract double GetArea();
+
+    public override string ToString()
+    {
+        return $"Color: {color}\n";
+    }
 }
